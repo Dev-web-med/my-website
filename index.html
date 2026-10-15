@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#041226">
+  <title>Mohammed | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header" id="top">
+  <a href="#home" class="brand">
+    <span class="logo-mark"><span>ME</span></span>
+    <span class="brand-name">MOHAMMED</span>
+  </a>
+
+  <nav id="navbar">
+    <a href="#home">Accueil</a>
+    <a href="#about">À propos</a>
+    <a href="#skills">Compétences</a>
+    <a href="#projects">Projets</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="header-actions">
+    <button id="themeToggle" class="theme-toggle"
+      aria-label="Changer le thème">☀️ / 🌙</button>
+    <button id="menuToggle" class="menu-toggle"
+      aria-label="Ouvrir le menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-background"></div>
+
+    <div class="hero-container">
+      <div class="hero-content reveal">
+        <p class="eyebrow"></p>
+
+        <h1>Bonjour, je suis
+          <span>Mohammed</span>
+        </h1>
+
+        <h2>Développeur informatique</h2>
+
+        <p class="description">
+          Je crée des applications web modernes, des interfaces propres
+          et des solutions informatiques adaptées aux besoins des utilisateurs.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-gold">
+            ▣ Voir mes projets →
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            ✉ Me contacter
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-photo reveal">
+        <div class="photo-ring">
+          <img src="assets/profile.jpg"
+               alt="Photo de Mohammed"
+               onerror="this.style.display='none'">
+          <span class="photo-fallback">ME</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-down" aria-label="À propos">↓</a>
+  </section>
+
+  <section class="about-skills section" id="about">
+    <div class="about-content reveal">
+      <p class="eyebrow">QUI SUIS-JE ?</p>
+      <h2>À propos de moi</h2>
+
+      <p>
+        Je suis passionné par la création de sites web et d'applications
+        de gestion. J'aime transformer une idée en une solution simple,
+        moderne et fonctionnelle.
+      </p>
+
+      <div class="info-grid">
+        <div><strong>Profil</strong><span>Développeur informatique</span></div>
+        <div><strong>Technologies</strong><span>HTML, CSS, JS, PHP, MySQL</span></div>
+        <div><strong>Projet</strong><span>Applications Web & Gestion</span></div>
+        <div><strong>Objectif</strong><span>Continuer à progresser</span></div>
+      </div>
+    </div>
+
+    <div class="skills-content reveal" id="skills">
+      <p class="eyebrow">CE QUE JE SAIS FAIRE</p>
+      <h2>Mes compétences</h2>
+
+      <div class="skills-grid">
+        <article class="skill-card">
+          <h3>HTML5 <span>90%</span></h3>
+          <div class="progress"><span style="--level:90%"></span></div>
+        </article>
+
+        <article class="skill-card">
+          <h3>CSS3 <span>85%</span></h3>
+          <div class="progress"><span style="--level:85%"></span></div>
+        </article>
+
+        <article class="skill-card">
+          <h3>JavaScript <span>75%</span></h3>
+          <div class="progress"><span style="--level:75%"></span></div>
+        </article>
+
+        <article class="skill-card">
+          <h3>PHP <span>80%</span></h3>
+          <div class="progress"><span style="--level:80%"></span></div>
+        </article>
+
+        <article class="skill-card">
+          <h3>MySQL <span>80%</span></h3>
+          <div class="progress"><span style="--level:80%"></span></div>
+        </article>
+
+        <article class="skill-card">
+          <h3>C# / WinForms <span>75%</span></h3>
+          <div class="progress"><span style="--level:75%"></span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section section" id="projects">
+    <div class="section-title reveal">
+      <p class="eyebrow">MON TRAVAIL</p>
+      <h2>Mes projets</h2>
+    </div>
+
+    <div class="projects-grid">
+
+      <article class="project-card reveal">
+        <div class="project-number">01</div>
+        <div class="project-icon">▣</div>
+        <h3>Application de gestion</h3>
+        <p>Gestion des clients, des opérations, des paiements et des données.</p>
+        <div class="tags">PHP · MySQL · JavaScript</div>
+
+        <div class="project-buttons">
+          <a class="file-btn pdf" href="documents/projet-01.pdf"
+             target="_blank" rel="noopener">📕 Ouvrir PDF</a>
+          <a class="file-btn word" href="documents/projet-01.docx"
+             download>📘 Word</a>
+          <a class="file-btn ppt" href="documents/projet-01.pptx"
+             download>📙 PPT</a>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-number">02</div>
+        <div class="project-icon">◎</div>
+        <h3>Site Web</h3>
+        <p>Portfolio responsive présentant le profil, les compétences et les projets.</p>
+        <div class="tags">HTML5 · CSS3 · JavaScript</div>
+
+        <div class="project-buttons">
+          <a class="file-btn pdf" href="documents/projet-02.pdf"
+             target="_blank" rel="noopener">📕 Ouvrir PDF</a>
+          <a class="file-btn word" href="documents/projet-02.docx"
+             download>📘 Word</a>
+          <a class="file-btn ppt" href="documents/projet-02.pptx"
+             download>📙 PPT</a>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-number">03</div>
+        <div class="project-icon">⬡</div>
+        <h3>Application Colis</h3>
+        <p>Gestion des expéditeurs, destinataires, stock, livraison et tracking.</p>
+        <div class="tags">C# · SQL Server · WinForms</div>
+
+        <div class="project-buttons">
+          <a class="file-btn pdf" href="documents/projet-03.pdf"
+             target="_blank" rel="noopener">📕 Ouvrir PDF</a>
+          <a class="file-btn word" href="documents/projet-03.docx"
+             download>📘 Word</a>
+          <a class="file-btn ppt" href="documents/projet-03.pptx"
+             download>📙 PPT</a>
+        </div>
+      </article>
+
+    </div>
+    <p class="files-note">
+      Ajoute tes documents dans le dossier <b>documents</b>.
+    </p>
+  </section>
+
+  <section class="contact-section section" id="contact">
+    <div class="section-title reveal">
+      <p class="eyebrow">CONTACT</p>
+      <h2>Contactez-moi</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p><strong>Email</strong>
+          <a href="mailto:eljarmouni.med19@gmail.com">
+            eljarmouni.med19@gmail.com
+          </a>
+        </p>
+
+        <p><strong>Téléphone</strong>
+          <a href="tel:+212639798816">+212 6 39 79 88 16</a>
+        </p>
+
+        <p><strong>Localisation</strong>Oujda, Maroc</p>
+      </div>
+
+      <form id="contactForm" class="contact-form reveal">
+        <div class="form-row">
+          <input name="name" type="text"
+                 placeholder="Votre nom" required>
+          <input name="email" type="email"
+                 placeholder="Votre email" required>
+        </div>
+
+        <input name="subject" type="text"
+               placeholder="Sujet" required>
+
+        <textarea name="message" rows="4"
+                  placeholder="Votre message" required></textarea>
+
+        <button type="submit" class="btn btn-gold">
+          ➤ Envoyer le message
+        </button>
+
+        <p id="formMessage" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© <span id="year"></span> DEV-MED-BY — Tous droits réservés.</p>
+  <a href="#top">↑ Retour en haut</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
