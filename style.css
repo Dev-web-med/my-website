@@ -668,6 +668,27 @@ footer a {
   }
 }
 
+/* ========= WELCOME ANIMATION - ADDED ========= */
+#intro {
+  position: fixed; inset: 0; z-index: 9999;
+  display: grid; place-items: center;
+  background: #081426; color: #f7f8fa;
+  animation: introHide .65s ease 1.8s forwards;
+}
+.intro-inner { width: min(420px, 85vw); text-align: center; }
+.intro-text {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+  font: 700 clamp(1.8rem, 6vw, 3rem)/1.2 'Space Grotesk', sans-serif;
+}
+.intro-text span { animation: introWord .7s both; }
+.intro-text span:nth-child(2) { animation-delay: .15s; }
+.intro-text span:nth-child(3) { color: var(--accent); animation-delay: .3s; }
+.intro-bar { height: 4px; margin-top: 24px; border-radius: 9px; background: #26364b; overflow: hidden; }
+.intro-bar::after { content: ''; display: block; height: 100%; width: 100%; background: var(--gold); transform-origin: left; animation: introBar 1.25s ease both; }
+@keyframes introWord { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes introBar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes introHide { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+
 /* MOBILE */
 
 @media (max-width: 700px) {
