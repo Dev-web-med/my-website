@@ -177,7 +177,7 @@ nav a.active::after {
   background:
     linear-gradient(90deg, rgba(2, 14, 29, .96),
     rgba(2, 14, 29, .76)),
-    url("assets/background.jpg") center / cover no-repeat;
+    url("assets/background.jpeg") center / cover no-repeat;
 }
 
 html[data-theme="day"] .hero-background {
