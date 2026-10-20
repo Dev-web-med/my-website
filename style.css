@@ -350,7 +350,7 @@ html[data-theme="day"] .toggle-track i {
             rgba(2, 14, 29, 0.65)
         ),
         linear-gradient(0deg, var(--bg), transparent 40%),
-        url("assets/background.jpEg") center / cover no-repeat;
+        url("assets/background.jpeg") center / cover no-repeat;
 }
 
 .hero-grid {
