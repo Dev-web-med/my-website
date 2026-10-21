@@ -22,11 +22,50 @@
     <!-- ================= HEADER ================= -->
     <header class="site-header" id="top">
 
-        <a class="brand" href="#accueil" aria-label="MEJ, accueil">
-            <span class="brand-mark" aria-hidden="true"><span>MEJ</span></span>
-            <span class="brand-divider"></span>
-            <strong>Mohammed</strong>
-        </a>
+<a class="brand" href="#accueil" aria-label="Mohammed, accueil">
+  <span class="brand-mark" id="mejLogoBox" aria-hidden="true" style="background:none; border:none; padding:0; width:48px; height:48px; display:inline-flex; position:relative; overflow:hidden;">
+    <img id="logoNight" src="assets/logo-gold.jpeg" alt="MEJ" style="position:absolute; width:48px; height:48px; object-fit:contain; transition:opacity .3s; opacity:1;">
+    <img id="logoDay" src="assets/logo-silver.jpeg" alt="MEJ" style="position:absolute; width:48px; height:48px; object-fit:contain; transition:opacity .3s; opacity:0;">
+  </span>
+  <span class="brand-divider"></span>
+  <strong>Mohammed</strong>
+</a>
+
+<script>
+// هاد السكريبت كيقلب على الثيم الحقيقي ديال السيت ديالك
+function updateMejLogo(){
+  const night = document.getElementById('logoNight');
+  const day = document.getElementById('logoDay');
+  if(!night || !day) return;
+
+  // قلب على أي علامة ديال النهار
+  const isLight = document.documentElement.classList.contains('light') ||
+                  document.documentElement.getAttribute('data-theme') === 'light' ||
+                  document.body.classList.contains('light-mode') ||
+                  document.body.classList.contains('light') ||
+                  document.documentElement.classList.contains('light-mode');
+
+  if(isLight){
+    night.style.opacity = '0';
+    day.style.opacity = '1';
+    day.style.filter = 'drop-shadow(0 0 6px rgba(120,180,255,.4))';
+  }else{
+    night.style.opacity = '1';
+    day.style.opacity = '0';
+    night.style.filter = 'drop-shadow(0 0 6px rgba(255,215,0,.5))';
+  }
+}
+
+// 1. ملي كتحل الصفحة
+document.addEventListener('DOMContentLoaded', updateMejLogo);
+
+// 2. ملي كتكليكي على بوطون الليل/نهار (كنراقبو أي تبديل فالكلاس)
+new MutationObserver(updateMejLogo).observe(document.documentElement, {attributes:true, attributeFilter:['class','data-theme']});
+new MutationObserver(updateMejLogo).observe(document.body, {attributes:true, attributeFilter:['class']});
+
+// 3. زيد هاد السطر حدا البوطون ديالك ديال الثيم باش يتأكد
+setInterval(updateMejLogo, 500);
+</script>
 
     <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
             <a class="active" href="#accueil">Accueil</a>
@@ -135,7 +174,7 @@
                 <div class="about-image">
                     <img
                         src="assets/profile.jpg"
-                        alt="mohammed"
+                        alt="Mohammed"
                         loading="lazy"
                     >
                 </div>
@@ -325,7 +364,8 @@
                         <a
                             class="file-button word"
                             href="documents/.docx"
-                            download
+                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             📘  Word
                         </a>
@@ -333,7 +373,8 @@
                         <a
                             class="file-button ppt"
                             href="documents/.pptx"
-                            download
+                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             📙 PPT
                         </a>
@@ -373,7 +414,8 @@
                         <a
                             class="file-button word"
                             href="documents/.docx"
-                            download
+                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             📘  Word
                         </a>
@@ -381,7 +423,8 @@
                         <a
                             class="file-button ppt"
                             href="documents/.pptx"
-                            download
+                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             📙  PPT
                         </a>
@@ -421,7 +464,8 @@
                         <a
                             class="file-button word"
                             href="documents/.docx"
-                            download
+                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             📘  Word
                         </a>
@@ -429,7 +473,8 @@
                         <a
                             class="file-button ppt"
                             href="documents/.pptx"
-                            download
+                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             📙  PPT
                         </a>
@@ -567,6 +612,36 @@
         <a href="#top">↑ &nbsp;Retour en haut</a>
 
     </footer>
+
+<!-- بار صغير ديال ليستة -->
+<div id="smallBarModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:99998; backdrop-filter:blur(5px);">
+  <div style="background:#121e36; width:90%; max-width:500px; margin:80px auto; border-radius:20px; border:1px solid rgba(212,175,55,.3); padding:15px; max-height:70vh; display:flex; flex-direction:column;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; padding:5px 10px;">
+      <h3 id="smallBarTitle" style="color:#fff; margin:0; font-size:18px;">📁 Documents</h3>
+      <button onclick="closeSmallBar()" style="background:transparent; border:1px solid #d4af37; color:#d4af37; width:30px; height:30px; border-radius:50%; cursor:pointer;">✕</button>
+    </div>
+    <div id="docList" style="overflow-y:auto; display:flex; flex-direction:column; gap:10px; padding-right:5px;"></div>
+  </div>
+</div>
+
+<!-- قارئ PDF فالشاشة كاملة -->
+<div id="pdfFullModal" style="display:none; position:fixed; inset:0; background:#0a1931; z-index:99999; flex-direction:column;">
+  <div style="height:60px; background:#08142a; display:flex; justify-content:space-between; align-items:center; padding:0 20px; border-bottom:1px solid rgba(212,175,55,.3);">
+    <span id="pdfFullTitle" style="color:#d4af37; font-weight:bold;"></span>
+    <button onclick="closePdfFull()" style="background:#d4af37; border:none; width:38px; height:38px; border-radius:50%; cursor:pointer; font-size:18px; font-weight:bold; color:#0a1931;">✕</button>
+  </div>
+  <iframe id="pdfFullFrame" src="" style="flex:1; border:none; background:#fff;"></iframe>
+</div>
+
+<style>
+#docList::-webkit-scrollbar{width:6px} #docList::-webkit-scrollbar-thumb{background:#d4af37; border-radius:10px}
+.doc-row{display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,.08); padding:12px 15px; border-radius:14px; border:1px solid rgba(255,255,255,.05); transition:.2s;}
+.doc-row:hover{background:rgba(212,175,55,.12); border-color:rgba(212,175,55,.3);}
+.doc-name{color:#fff; font-size:15px; display:flex; align-items:center; gap:10px;}
+.btn-voir{background:#0f2450; border:1.5px solid #d4af37; color:#d4af37; padding:6px 18px; border-radius:20px; cursor:pointer; font-weight:bold; transition:.2s;}
+.btn-voir:hover{background:#d4af37; color:#0a1931;}
+</style>
+
 
 </body>
 </html>
